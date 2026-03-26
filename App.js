@@ -1,40 +1,37 @@
 import * as React from 'react';
-import { Text, SafeAreaView} from 'react-native';
 import {
   createStaticNavigation,
-  useNavigation,
 } from '@react-navigation/native';
-import { Button } from '@react-navigation/elements';
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
-
-function HomeScreen() {
-  const navigation = useNavigation();
-
-  return (
-    <SafeAreaView style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-      <Text>Home Screen</Text>
-      <Button onPress={() => navigation.navigate('Profile')}>
-        Go to Profile
-      </Button>
-    </SafeAreaView>
-  );
-}
-
-function ProfileScreen() {
-  const navigation = useNavigation();
-
-  return (
-    <SafeAreaView style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-      <Text>Profile Screen</Text>
-      <Button onPress={() => navigation.navigate('Home')}>Go to Home</Button>
-    </SafeAreaView>
-  );
-}
+import SaldoScreen from './src/screens/SaldoScreen';
+import CartoesScreen from './src/screens/CartoesScreen';
 
 const MyTabs = createMaterialTopTabNavigator({
+  screenOptions: {
+    tabBarStyle: {
+      backgroundColor: '#ffffff',
+      elevation: 0,
+      shadowOpacity: 0,
+      borderBottomWidth: 1,
+      borderBottomColor: '#f0f0f0',
+    },
+    tabBarIndicatorStyle: {
+      backgroundColor: '#ff7a00',
+      height: 3,
+      borderTopLeftRadius: 2,
+      borderTopRightRadius: 2,
+    },
+    tabBarActiveTintColor: '#1a1a1a',
+    tabBarInactiveTintColor: '#8b8b8b',
+    tabBarLabelStyle: {
+      fontWeight: '700',
+      textTransform: 'none',
+      fontSize: 14,
+    },
+  },
   screens: {
-    Home: HomeScreen,
-    Profile: ProfileScreen,
+    Saldo: SaldoScreen,
+    Cartoes: CartoesScreen,
   },
 });
 
